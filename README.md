@@ -3,4 +3,5 @@
 Orange(macOS 메뉴 막대 앱)의 DMG와 자동 업데이트 목록(appcast.xml)을 올리는 곳입니다.
 
 - 소개와 쓰는 법: https://jaydenhsong.github.io/orange-releases/ (English: https://jaydenhsong.github.io/orange-releases/en/)
-- 최신 버전 받기: [Releases](https://github.com/JaydenHSong/orange-releases/releases/latest)
+- 최신 버전 받기: [Releases](https://github.com/JaydenHSong/orange-releases/releases/latest) (Apple Silicon Mac, macOS 14 이상)
+- macOS 13에서는 [Orange 1.0.0](https://github.com/JaydenHSong/orange-releases/releases/tag/v1.0.0)을 쓰세요.
