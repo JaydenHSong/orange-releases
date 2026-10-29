@@ -2,6 +2,19 @@
   const REPO = "JaydenHSong/orange-releases";
   const KO = document.documentElement.lang === "ko";
 
+  document.querySelectorAll("a[data-language]").forEach(link => {
+    link.addEventListener("click", () => {
+      try { localStorage.setItem("orange.language", link.dataset.language); }
+      catch (_) {
+        // Private browsing/storage denial: carry this explicit choice through the navigation.
+        const url = new URL(link.href);
+        url.searchParams.set("lang", link.dataset.language);
+        link.href = url.href;
+      }
+    });
+  });
+
+  // Wheel labels follow the rendered page after the inline language routing.
   // Words that change with the page's language. The wheel labels are the app's own (Korean or English UI).
   const T = KO ? {
     get: v => `Orange ${v} 받기`,

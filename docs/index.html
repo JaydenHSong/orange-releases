@@ -1,135 +1,154 @@
 <!doctype html>
-<html lang="ko">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Orange</title>
-<meta name="description" content="Finder에서 파일을 끌다가 조합키를 탭하면 포인터 자리에 휠이 뜨는 macOS 앱.">
+<meta name="description" content="A macOS app that opens a wheel under the pointer when you tap a modifier key while dragging files in Finder.">
 <meta name="color-scheme" content="light dark">
 <link rel="icon" href="assets/icon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="assets/site.css">
-<link rel="alternate" hreflang="ko" href="https://jaydenhsong.github.io/orange-releases/">
-<link rel="alternate" hreflang="en" href="https://jaydenhsong.github.io/orange-releases/en/">
+<link rel="alternate" hreflang="ko" href="https://jaydenhsong.github.io/orange-releases/ko/">
+<link rel="alternate" hreflang="en" href="https://jaydenhsong.github.io/orange-releases/">
+<link rel="alternate" hreflang="x-default" href="https://jaydenhsong.github.io/orange-releases/">
+<script>(() => {
+  const current = document.documentElement.lang;
+  const valid = value => value === "en" || value === "ko";
+  const requested = new URLSearchParams(location.search).get("lang");
+  let choice = valid(requested) ? requested : null;
+  try {
+    if (choice) localStorage.setItem("orange.language", choice);
+    else choice = localStorage.getItem("orange.language");
+  } catch (_) {}
+  if (!valid(choice)) choice = null;
+  const preferred = (navigator.languages || [navigator.language || "en"])
+    .map(value => value.toLowerCase().split("-")[0]).find(valid);
+  const target = choice || (current === "en" && preferred === "ko" ? "ko" : current);
+  if (target !== current) {
+    location.replace((current === "ko" ? "../" : "./") +
+      (target === "ko" ? "ko/" : "") + location.search + location.hash);
+  }
+})();</script>
 <script>document.documentElement.classList.add("js")</script>
 </head>
 <body>
 <header class="bar">
   <div class="bar-in">
     <a class="brand" href="#top"><svg viewBox="0 0 1024 1024" aria-hidden="true"><use href="#icon"></use></svg>Orange</a>
-    <nav><a href="https://github.com/JaydenHSong/orange-releases/releases">모든 버전</a><a href="en/" hreflang="en" lang="en">English</a></nav>
+    <nav><a href="https://github.com/JaydenHSong/orange-releases/releases">All versions</a><a data-language="ko" href="ko/" hreflang="ko" lang="ko">한국어</a></nav>
   </div>
 </header>
 <main id="top">
   <section class="hero">
     <svg class="hero-icon" viewBox="0 0 1024 1024" aria-hidden="true"><use href="#icon"></use></svg>
-    <h1>끌다가 탭하면, 휠.</h1>
-    <p class="lede">Finder에서 파일을 끄는 중에 조합키를 한 번 탭하세요. 포인터 자리에 휠이 뜨고, 칸 위에 놓으면 끝입니다.</p>
+    <h1>Drag. Tap. Wheel.</h1>
+    <p class="lede">Tap a modifier key once while you drag files in Finder. A wheel opens under the pointer; let go on a segment and you're done.</p>
     <div class="cta">
-      <a class="get" id="get" href="https://github.com/JaydenHSong/orange-releases/releases/latest"><span id="get-label">Orange 받기</span></a>
-      <p class="get-meta"><span id="get-meta">GitHub의 최신 버전 페이지에서 받습니다.</span><br>Apple Silicon Mac, macOS 15 이상<br>macOS 14는 <a href="https://github.com/JaydenHSong/orange-releases/releases/tag/v1.1.1">Orange 1.1.1</a>을 쓰세요.<br>macOS 13은 <a href="https://github.com/JaydenHSong/orange-releases/releases/tag/v1.0.0">Orange 1.0.0</a>을 쓰세요.</p>
+      <a class="get" id="get" href="https://github.com/JaydenHSong/orange-releases/releases/latest"><span id="get-label">Download Orange</span></a>
+      <p class="get-meta"><span id="get-meta">From the latest release on GitHub.</span><br>Apple Silicon Mac, macOS 15 or later<br>On macOS 14, use <a href="https://github.com/JaydenHSong/orange-releases/releases/tag/v1.1.1">Orange 1.1.1</a>.<br>On macOS 13, use <a href="https://github.com/JaydenHSong/orange-releases/releases/tag/v1.0.0">Orange 1.0.0</a>.</p>
     </div>
-    <div class="stage" id="stage" role="img" aria-label="파일을 끌다가 Shift를 탭하면 휠이 열리고, JPG 칸에 놓으면 옆에 JPG 파일이 생기는 장면">
-      <div class="finder"><div class="finder-bar"><i></i><i></i><i></i><span>데스크탑</span></div></div>
-      <div class="file orig"><svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7" fill="url(#thumb)"/><path d="M5 25l7-9 5 6 3-3 7 6z" fill="#fff" opacity=".92"/><circle cx="22" cy="9" r="3" fill="#fff" opacity=".92"/></svg><span>사진.png</span></div>
-      <div class="file made"><svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7" fill="url(#thumb)"/><path d="M5 25l7-9 5 6 3-3 7 6z" fill="#fff" opacity=".92"/><circle cx="22" cy="9" r="3" fill="#fff" opacity=".92"/></svg><span>사진.jpg</span></div>
+    <div class="stage" id="stage" role="img" aria-label="A file is dragged, Shift is tapped, the wheel opens, and dropping on JPG puts a JPG file next to the original">
+      <div class="finder"><div class="finder-bar"><i></i><i></i><i></i><span>Desktop</span></div></div>
+      <div class="file orig"><svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7" fill="url(#thumb)"/><path d="M5 25l7-9 5 6 3-3 7 6z" fill="#fff" opacity=".92"/><circle cx="22" cy="9" r="3" fill="#fff" opacity=".92"/></svg><span>photo.png</span></div>
+      <div class="file made"><svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7" fill="url(#thumb)"/><path d="M5 25l7-9 5 6 3-3 7 6z" fill="#fff" opacity=".92"/><circle cx="22" cy="9" r="3" fill="#fff" opacity=".92"/></svg><span>photo.jpg</span></div>
       <div class="dwrap"><svg class="dw" viewBox="0 0 340 340" aria-hidden="true"><circle class="disc" cx="170" cy="170" r="160"/><g class="seg first"><path d="M104.49 39.52A146 146 0 0 1 235.51 39.52L194.36 110.82A64 64 0 0 0 145.64 110.82Z"/><text x="170.0" y="65.0">JPG</text></g><g class="seg"><path d="M250.24 48.02A146 146 0 0 1 315.75 161.50L233.43 161.50A64 64 0 0 0 209.08 119.32Z"/><text x="260.9" y="117.5">WEBP</text></g><g class="seg"><path d="M315.75 178.50A146 146 0 0 1 250.24 291.98L209.08 220.68A64 64 0 0 0 233.43 178.50Z"/><text x="260.9" y="222.5">HEIC</text></g><g class="seg"><path d="M235.51 300.48A146 146 0 0 1 104.49 300.48L145.64 229.18A64 64 0 0 0 194.36 229.18Z"/><text x="170.0" y="275.0">TIFF</text></g><g class="seg"><path d="M89.76 291.98A146 146 0 0 1 24.25 178.50L106.57 178.50A64 64 0 0 0 130.92 220.68Z"/><text x="79.1" y="222.5">BMP</text></g><g class="seg"><path d="M24.25 161.50A146 146 0 0 1 89.76 48.02L130.92 119.32A64 64 0 0 0 106.57 161.50Z"/><text x="79.1" y="117.5">PDF</text></g><circle class="hub" cx="170" cy="170" r="54"/><g class="dchip"><rect x="128" y="159" width="84" height="22" rx="11"/><text x="170" y="170.5">→ JPG</text></g></svg></div>
       <div class="hand"><div class="ghost"><svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7" fill="url(#thumb)"/><path d="M5 25l7-9 5 6 3-3 7 6z" fill="#fff" opacity=".92"/><circle cx="22" cy="9" r="3" fill="#fff" opacity=".92"/></svg></div><svg class="cursor" viewBox="0 0 16 24" aria-hidden="true"><path d="M1 1v18.5l4.6-4.4 3.2 7.2 3-1.3-3.1-7h6.3z" fill="#fff" stroke="#000" stroke-width="1.3" stroke-linejoin="round"/></svg></div>
       <div class="keycap"><b>⇧</b>Shift</div>
     </div>
-    <p class="beats" aria-hidden="true"><span class="beat b1">끌고</span><span class="beat b2">탭하고</span><span class="beat b3">놓으면 끝</span></p>
+    <p class="beats" aria-hidden="true"><span class="beat b1">Drag</span><span class="beat b2">Tap</span><span class="beat b3">Drop</span></p>
   </section>
 
   <section class="wheels">
     <div class="center reveal">
-      <h2>휠은 네 개.</h2>
-      <p class="sub">조합키마다 다른 휠이 열립니다. 키보드의 ⇧ ⌃ ⌥ ⌘를 눌러 보세요.</p>
+      <h2>Four wheels.</h2>
+      <p class="sub">Each modifier key opens its own wheel. Try ⇧ ⌃ ⌥ ⌘ on your keyboard.</p>
     </div>
     <div class="story">
       <div class="story-wheel">
         <svg class="wheel" id="wheel" viewBox="0 0 340 340" role="img">
           <circle class="disc" cx="170" cy="170" r="160"/><g id="segs"></g><circle class="hub" cx="170" cy="170" r="54"/><g id="center"></g>
         </svg>
-        <div class="keys" id="keys"><button type="button" data-kind="convert" aria-pressed="true"><b>⇧</b>변환</button><button type="button" data-kind="actions" aria-pressed="false"><b>⌃</b>동작</button><button type="button" data-kind="presets" aria-pressed="false"><b>⌥</b>프리셋</button><button type="button" data-kind="tools" aria-pressed="false"><b>⌘</b>도구</button></div>
+        <div class="keys" id="keys"><button type="button" data-kind="convert" aria-pressed="true"><b>⇧</b>Convert</button><button type="button" data-kind="actions" aria-pressed="false"><b>⌃</b>Actions</button><button type="button" data-kind="presets" aria-pressed="false"><b>⌥</b>Presets</button><button type="button" data-kind="tools" aria-pressed="false"><b>⌘</b>Tools</button></div>
       </div>
       <div class="panels">
-<div class="panel" data-kind="convert"><p class="panel-key"><kbd>⇧</kbd> 변환</p><h3>형식을 바꿉니다.</h3><p>JPG, PNG, WEBP, HEIC, TIFF, BMP, PDF. 오디오: MP3, M4A, WAV, FLAC, OGG, OPUS, AIFF, WMA. 영상: MP4, MOV, MKV, AVI, WMV, GIF, WEBM 입력과 같은 일곱 형식 또는 MP3 오디오 추출. 원본은 그대로 두고, 새 파일은 바로 옆에 만듭니다.</p></div>
-<div class="panel" data-kind="actions"><p class="panel-key"><kbd>⌃</kbd> 동작</p><h3>파일을 보냅니다.</h3><p>AirDrop, Float, 복사, 이동, 경로 복사, 터미널. 어떤 파일이든 같은 여섯 칸입니다.</p></div>
-<div class="panel" data-kind="presets"><p class="panel-key"><kbd>⌥</kbd> 프리셋</p><h3>팀의 설정을 한 번에.</h3><p>Web JPG처럼 팀이 정한 변환입니다. .orangepreset 파일을 두 번 누르면 추가됩니다.</p></div>
-<div class="panel" data-kind="tools"><p class="panel-key"><kbd>⌘</kbd> 도구</p><h3>이미지·오디오·영상을 다듬습니다.</h3><p><span class="group"><b>이미지</b> 7가지: 압축, 메타데이터, 편집, 주석, 배경 추가, 자르기, 가리기</span><span class="group"><b>오디오</b> 5가지: 압축(Compress), 메타데이터(Metadata), 구간 자르기(Trim), 음량 맞추기(Normalize), 채널(Channels)</span><span class="group"><b>영상</b> 8가지: 압축, 메타데이터, 구간 자르기, 음소거(Mute), 분할(Split), 자르기(Crop), 속도(Speed), 장면 저장(Snapshot)</span><span class="group">원본은 그대로 두고, 결과는 다시 확인한 뒤 옆에 저장합니다.</span></p></div>
+<div class="panel" data-kind="convert"><p class="panel-key"><kbd>⇧</kbd> Convert</p><h3>Change the format.</h3><p>JPG, PNG, WEBP, HEIC, TIFF, BMP, PDF. Audio: MP3, M4A, WAV, FLAC, OGG, OPUS, AIFF, WMA. Video: MP4, MOV, MKV, AVI, WMV, GIF, WEBM input and the same seven outputs or MP3 audio extraction. The original stays; the new file goes right next to it.</p></div>
+<div class="panel" data-kind="actions"><p class="panel-key"><kbd>⌃</kbd> Actions</p><h3>Send it somewhere.</h3><p>AirDrop, Float, Copy, Move, Copy Path, Terminal. The same six for any file.</p></div>
+<div class="panel" data-kind="presets"><p class="panel-key"><kbd>⌥</kbd> Presets</p><h3>Your team's settings, at once.</h3><p>Conversions your team set up, like Web JPG. Double-click an .orangepreset file to add one.</p></div>
+<div class="panel" data-kind="tools"><p class="panel-key"><kbd>⌘</kbd> Tools</p><h3>Work on images, audio and video.</h3><p><span class="group"><b>Images</b> seven tools: Compress, Metadata, Edit, Annotate, Add BG, Crop, Redact</span><span class="group"><b>Audio</b> five: Compress, Metadata, Trim, Normalize, Channels</span><span class="group"><b>Video</b> eight: Compress, Metadata, Trim, Mute, Split, Crop, Speed, Snapshot</span><span class="group">The original stays; each result is checked, then saved next to it.</span></p></div>
       </div>
     </div>
   </section>
 
   <section class="install">
-    <div class="center reveal"><h2>설치는 세 단계.</h2></div>
+    <div class="center reveal"><h2>Three steps to install.</h2></div>
     <ol class="steps">
-<li><h3>DMG를 엽니다.</h3><p>받은 Orange DMG를 두 번 누릅니다.</p></li>
-<li><h3>응용 프로그램으로.</h3><p>Orange를 옆의 응용 프로그램 폴더로 끌어 놓습니다.</p></li>
-<li><h3>열기를 누릅니다.</h3><p>처음 켤 때 묻는 창에서 열기. Apple이 검사한 앱이라고 함께 나옵니다.</p></li>
+<li><h3>Open the DMG.</h3><p>Double-click the Orange DMG you downloaded.</p></li>
+<li><h3>Into Applications.</h3><p>Drag Orange onto the Applications folder next to it.</p></li>
+<li><h3>Click Open.</h3><p>The first time, macOS asks. Click Open; it also says Apple checked the app.</p></li>
     </ol>
-    <figure class="shot small reveal"><img src="assets/gatekeeper.png" width="570" height="570" alt="Orange를 처음 열 때 뜨는 macOS 확인 창. 열기 단추가 있다." loading="lazy"><figcaption>처음 켤 때 뜨는 창(영어 화면)</figcaption></figure>
+    <figure class="shot small reveal"><img src="assets/gatekeeper.png" width="570" height="570" alt="The macOS message shown the first time Orange opens, with an Open button." loading="lazy"><figcaption>The question you see the first time</figcaption></figure>
   </section>
 
   <section class="perm">
     <div class="center reveal">
-      <h2>권한은 처음에 한 번.</h2>
-      <p class="sub">시작하기의 셋째 쪽에서 Finder 제어 허용…과 폴더 허용…을 눌러 두세요. 처음 끌 때 질문 창에 끊기지 않습니다.</p>
+      <h2>Permissions, once.</h2>
+      <p class="sub">On the third page of Getting Started, click Allow Finder Control… and Allow Folders…. Then no question interrupts your first drag.</p>
     </div>
-    <figure class="shot reveal"><img src="assets/getting-started.png" width="1210" height="940" alt="시작하기의 키보드와 권한 쪽. Finder 제어와 데스크탑, 문서, 다운로드가 모두 허용되어 있다." loading="lazy"><figcaption>모두 허용한 모습(영어 화면)</figcaption></figure>
+    <figure class="shot reveal"><img src="assets/getting-started.png" width="1210" height="940" alt="The Keyboard and permissions page of Getting Started, with Finder control and Desktop, Documents and Downloads allowed." loading="lazy"><figcaption>Everything allowed</figcaption></figure>
   </section>
 
   <section class="tips">
-    <div class="center reveal"><h2>알아 두면 좋은 것.</h2></div>
+    <div class="center reveal"><h2>Good to know.</h2></div>
     <div class="tiles">
       <div class="tile wide move">
-        <div class="tile-text"><h3>휠이 뜨면, 조금 움직이세요.</h3><p>macOS는 포인터가 움직일 때 놓을 곳을 다시 정합니다. 휠 아래에 “움직여서 고르기 · Esc로 취소”가 보이면 살짝 움직인 뒤 놓으세요.</p></div>
-        <img src="assets/wheel-hint.png" width="700" height="780" alt="동작 휠 아래에 Move to choose, Esc cancels 안내가 떠 있다." loading="lazy">
+        <div class="tile-text"><h3>When the wheel opens, move a little.</h3><p>macOS picks where a drag goes when the pointer moves. If “Move to choose · Esc cancels” shows below the wheel, move slightly, then let go.</p></div>
+        <img src="assets/wheel-hint.png" width="700" height="780" alt="The Actions wheel with Move to choose, Esc cancels below it." loading="lazy">
       </div>
       <div class="tile kb">
         <p class="big-keys"><kbd>⌃</kbd><kbd>⌥</kbd><kbd>O</kbd></p>
-        <h3>끌지 않고도.</h3><p>Finder에서 고르고 ⌃⌥O. 방향키로 고르고 Return.</p>
+        <h3>Without dragging.</h3><p>Select in Finder and press ⌃⌥O. Arrow keys to choose, Return to run.</p>
       </div>
       <div class="tile esc">
         <p class="big-keys"><kbd>esc</kbd></p>
-        <h3>그만두려면.</h3><p>가운데에 놓거나 Esc. 아무 일도 하지 않습니다.</p>
+        <h3>To cancel.</h3><p>Let go in the middle, or press Esc. Nothing happens.</p>
       </div>
       <div class="tile wide up">
-        <div class="tile-text"><h3>업데이트는 점 하나로.</h3><p>새 버전이 나오면 메뉴 막대 아이콘에 점이 생깁니다. 메뉴 맨 위에서 설치하면 다시 켜집니다.</p></div>
-        <img src="assets/menu-update.png" width="660" height="660" alt="Orange 메뉴 맨 위에 Install New Version 1.1.0 항목이 있다." loading="lazy">
+        <div class="tile-text"><h3>Updates, with one dot.</h3><p>A dot on the menu bar icon means a new version. Install it from the top of the menu; Orange opens again.</p></div>
+        <img src="assets/menu-update.png" width="660" height="660" alt="Orange's menu with Install New Version 1.1.0 at the top." loading="lazy">
       </div>
     </div>
   </section>
 
   <section class="next">
     <div class="center reveal">
-      <h2>다음은 1.3.</h2>
-      <p class="sub">문서, 표, 압축 파일, 자막도 끌어다 바로. 지금 만드는 중이라 내용은 바뀔 수 있습니다.</p>
+      <h2>Next: 1.3.</h2>
+      <p class="sub">Documents, tables, archives and subtitles, straight from a drag. Still in the works, so details may change.</p>
     </div>
     <div class="tiles">
-<div class="tile half"><p class="big-keys"><kbd>⇧</kbd></p><h3>문서</h3><p>PDF를 JPG, PNG, 텍스트, Markdown, EPUB으로. 텍스트, Markdown, RTF를 PDF로. Word(DOCX)와 Excel(XLSX)도 PDF로 바꾸고, 원본과 달라 보일 수 있는 부분은 결과에 알려 줍니다.</p></div>
-<div class="tile half"><p class="big-keys"><kbd>⌘</kbd></p><h3>PDF 도구</h3><p>압축, 메타데이터, 나누기, 페이지 정리, 합치기, QR 읽기.</p></div>
-<div class="tile half"><p class="big-keys"><kbd>⇧</kbd><kbd>⌘</kbd></p><h3>압축 파일</h3><p>ZIP, TAR, GZIP을 서로 바꾸고, 암호 없는 RAR 한 파일은 ZIP, TAR, GZIP으로. 도구 휠에서 바로 풉니다.</p></div>
-<div class="tile half"><p class="big-keys"><kbd>⇧</kbd></p><h3>표와 자막</h3><p>CSV와 TSV를 서로 바꾸거나 PDF로. 자막 SRT와 VTT를 서로 바꾸거나 텍스트로.</p></div>
+<div class="tile half"><p class="big-keys"><kbd>⇧</kbd></p><h3>Documents</h3><p>PDF to JPG, PNG, text, Markdown and EPUB. Text, Markdown and RTF to PDF. Word (DOCX) and Excel (XLSX) to PDF, with a note on anything that may look different from the original.</p></div>
+<div class="tile half"><p class="big-keys"><kbd>⌘</kbd></p><h3>PDF tools</h3><p>Compress, Metadata, Split, Organize, Merge and Read QR.</p></div>
+<div class="tile half"><p class="big-keys"><kbd>⇧</kbd><kbd>⌘</kbd></p><h3>Archives</h3><p>ZIP, TAR and GZIP to each other; a single unencrypted RAR to ZIP, TAR or GZIP. Extract straight from the tools wheel.</p></div>
+<div class="tile half"><p class="big-keys"><kbd>⇧</kbd></p><h3>Tables and subtitles</h3><p>CSV and TSV to each other or to PDF. SRT and VTT subtitles to each other or to text.</p></div>
     </div>
-    <p class="note">PDF를 다시 편집할 수 있는 Word, Excel, PowerPoint로 바꾸는 기능은 1.3에 넣지 않습니다.</p>
+    <p class="note">Turning a PDF back into editable Word, Excel or PowerPoint is not part of 1.3.</p>
   </section>
 
   <section class="help">
-    <div class="center reveal"><h2>문제가 생기면.</h2></div>
+    <div class="center reveal"><h2>If something goes wrong.</h2></div>
     <div class="faq">
-<details><summary>1.2.0 미디어의 제한은?</summary><p>한 번에 한 파일을 로컬에서 편집합니다. 클라우드 제공자 파일은 로컬 폴더로 복사하세요. 형식에 따라 미리 재생할 수 없거나 Metadata가 보기 전용이며, 목표 용량을 맞출 수 없으면 이유를 안내합니다. HDR→SDR 변환은 밝기·색 손실을 먼저 확인합니다. HDR10+와 Dolby Vision profile 5의 색 처리는 실제 기기 영상 없이는 검증되지 않았습니다. Dolby Vision profile 5와 12-bit 입력은 지원하지 않습니다. Mute의 HDR 보존은 재인코딩 없는 호환 컨테이너에 한합니다. VoiceOver를 먼저 켜면 응용 프로그램 선택기에 Orange가 안 보일 수 있습니다(1.1.0부터). 편집 창은 사용할 수 있고, 창을 연 채 VoiceOver를 껐다 켜면 목록에 나타납니다.</p></details>
-<details><summary>미디어 라이선스와 소스는?</summary><p>FFmpeg, LAME, Opus, Ogg, Vorbis, libvpx, dav1d, zimg 및 IJG, zlib, WTFPL 고지와 전문을 About에서 오프라인으로 읽습니다. 대응 소스·재링크 자료와 SHA256SUMS는 1.2.0 릴리스 다운로드에 함께 제공합니다.</p></details>
-<details><summary>휠이 뜨지 않아요</summary><p>마우스 단추를 누른 채 끄는 동안 조합키를 짧게 한 번 탭해야 합니다. 길게 누르면 탭이 아닙니다. Tangerine처럼 조합키로 휠을 여는 다른 앱이 켜져 있으면 그 앱을 끄거나, 설정 › 일반에서 Orange의 조합키를 바꾸세요.</p></details>
-<details><summary>폴더를 쓸 수 없다고 나와요</summary><p>시스템 설정 › 개인정보 보호 및 보안 › 파일 및 폴더에서 Orange 아래의 그 폴더를 켜세요. 시작하기 셋째 쪽의 설정 열기도 같은 화면을 엽니다.</p></details>
-<details><summary>⌃⌥O를 눌러도 휠이 안 떠요</summary><p>Finder에서 파일을 먼저 고르세요. Finder 선택을 볼 수 없다고 나오면 시스템 설정 › 개인정보 보호 및 보안 › 자동화에서 Orange 아래의 Finder를 켜세요. 다른 앱이 같은 단축키를 쓰면 설정 › 일반에서 바꿉니다.</p></details>
-<details><summary>“응용 프로그램 폴더로 옮겨 주세요”가 계속 떠요</summary><p>DMG 안이나 받은 폴더에서 켠 상태입니다. Orange를 끄고 응용 프로그램 폴더로 옮긴 뒤 거기서 켜세요. 그래야 업데이트도 받습니다.</p></details>
-<details><summary>지우고 싶어요</summary><p>메뉴에서 Orange를 끄고, 응용 프로그램 폴더의 Orange를 휴지통으로 옮기면 됩니다.</p></details>
+<details><summary>What are the media limits in 1.2.0?</summary><p>Edit one local file at a time. Copy provider files to a local folder first. Some containers cannot preview or offer view-only Metadata. If a target size cannot be met, Orange explains why. HDR to SDR conversion asks before losing brightness or colour detail. HDR10+ and Dolby Vision profile 5 colour handling is unverified without device footage. Dolby Vision profile 5 and 12-bit input are unsupported. Mute preserves HDR only in compatible containers without re-encoding. The VoiceOver application chooser may omit Orange when VoiceOver starts first (since 1.1.0). Editor windows remain accessible; toggle VoiceOver with an editor open to restore the listing.</p></details>
+<details><summary>Where are the media licences and sources?</summary><p>Read full FFmpeg, LAME, Opus, Ogg, Vorbis, libvpx, dav1d and zimg notices, including IJG, zlib and WTFPL, offline in About. Corresponding sources, relink materials and SHA256SUMS are alongside the 1.2.0 release downloads.</p></details>
+<details><summary>The wheel doesn't open</summary><p>Tap the modifier key briefly while you drag, with the mouse button down. Holding it isn't a tap. If another app that opens a wheel on modifier taps is running, such as Tangerine, quit it or change Orange's keys in Settings › General.</p></details>
+<details><summary>Orange can't use a folder</summary><p>Turn that folder on for Orange in System Settings › Privacy &amp; Security › Files &amp; Folders. Open Settings on the third page of Getting Started goes there too.</p></details>
+<details><summary>Nothing happens on ⌃⌥O</summary><p>Select files in Finder first. If Orange can't see the Finder selection, turn on Finder under Orange in System Settings › Privacy &amp; Security › Automation. If another app uses the shortcut, change it in Settings › General.</p></details>
+<details><summary>“Move Orange to the Applications folder” keeps showing</summary><p>Orange is running from the DMG or your Downloads folder. Quit it, move it to Applications and open it there. It can only update itself from there.</p></details>
+<details><summary>I want to remove Orange</summary><p>Quit Orange from its menu and move it from Applications to the Trash.</p></details>
     </div>
   </section>
 </main>
 <footer class="foot">
-  <p>배포 파일과 변경 내용은 GitHub의 <a href="https://github.com/JaydenHSong/orange-releases/releases">JaydenHSong/orange-releases</a>에 있습니다.</p>
-  <p>회사 Developer ID로 서명하고 Apple의 공증을 받았습니다.</p>
+  <p>Downloads and release notes are on GitHub at <a href="https://github.com/JaydenHSong/orange-releases/releases">JaydenHSong/orange-releases</a>.</p>
+  <p>Signed with the company's Developer ID and notarized by Apple.</p>
 </footer>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
 <linearGradient id="icon-bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" style="stop-color: var(--icon-a)"/><stop offset="1" style="stop-color: var(--icon-b)"/></linearGradient>
