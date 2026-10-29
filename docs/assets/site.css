@@ -365,7 +365,6 @@ details p { margin: 0 0 24px; color: var(--mute); font-size: 17px; line-height: 
 .team-work strong { display: block; margin-bottom: 6px; color: var(--ink); }
 .team-gallery > div { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
 .team-closing { max-width: 800px; }
-.team-disclosure { margin-top: 24px; font-size: 13px; color: var(--mute); }
 @media (max-width: 600px) {
   .team-page section { padding: 32px 20px; }
   .team-people, .team-work ul, .team-gallery > div { grid-template-columns: minmax(0, 1fr); }
