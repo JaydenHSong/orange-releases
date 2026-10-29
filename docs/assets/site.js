@@ -7,27 +7,23 @@
     get: v => `Orange ${v} 받기`,
     meta: (mb, d) => `DMG 파일, ${mb} MB, ${d.getFullYear()}년 ${d.getMonth() + 1}월 ${d.getDate()}일`,
     wheelLabel: (name, labels) => `Orange의 ${name} 휠: ${labels.join(", ")}`,
-    toolsLabel: "Orange의 도구 휠: 도구는 2단계에 추가됩니다",
-    toolsLines: ["도구는 2단계에", "추가됩니다"],
     file: "사진.png",
     wheels: {
       convert: { name: "변환", labels: ["JPG", "WEBP", "HEIC", "TIFF", "BMP", "PDF"], rest: 1 },
       actions: { name: "동작", labels: ["AirDrop", "Float", "복사", "이동", "경로 복사", "터미널"], rest: null },
       presets: { name: "프리셋", labels: ["Web JPG", "썸네일", "인쇄용 TIFF"], rest: 0 },
-      tools:   { name: "도구", labels: [], rest: null },
+      tools:   { name: "도구", labels: ["압축", "메타데이터", "편집", "주석", "배경", "자르기", "가리기"], rest: null },
     },
   } : {
     get: v => `Download Orange ${v}`,
     meta: (mb, d) => `DMG, ${mb} MB, ${d.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}`,
     wheelLabel: (name, labels) => `Orange's ${name} wheel: ${labels.join(", ")}`,
-    toolsLabel: "Orange's Tools wheel: tools arrive in phase 2",
-    toolsLines: ["Tools arrive", "in phase 2"],
     file: "photo.png",
     wheels: {
       convert: { name: "Convert", labels: ["JPG", "WEBP", "HEIC", "TIFF", "BMP", "PDF"], rest: 1 },
       actions: { name: "Actions", labels: ["AirDrop", "Float", "Copy", "Move", "Copy Path", "Terminal"], rest: null },
       presets: { name: "Presets", labels: ["Web JPG", "Thumbnail", "Print TIFF"], rest: 0 },
-      tools:   { name: "Tools", labels: [], rest: null },
+      tools:   { name: "Tools", labels: ["Compress", "Metadata", "Edit", "Annotate", "Add BG", "Crop", "Redact"], rest: null },
     },
   };
 
@@ -78,11 +74,6 @@
   function drawCenter() {
     center.replaceChildren();
     const wheel = WHEELS[kind];
-    if (!wheel.labels.length) {
-      el("text", { class: "empty-text", x: C, y: C - 4 }, center).textContent = T.toolsLines[0];
-      el("text", { class: "empty-text", x: C, y: C + 11 }, center).textContent = T.toolsLines[1];
-      return;
-    }
     const lifted = hovered ?? wheel.rest;
     if (lifted !== null) {
       const chip = el("g", { class: "chip" }, center);
@@ -106,7 +97,6 @@
     const wheel = WHEELS[kind];
     segs.replaceChildren();
     const n = wheel.labels.length;
-    if (!n) el("circle", { class: "empty-ring", cx: C, cy: C, r: (INNER + OUTER) / 2 }, segs);
     wheel.labels.forEach((label, i) => {
       const mid = -90 + i * 360 / n;
       // The outer group opens with the wheel; the inner one lifts the chosen segment.
@@ -120,7 +110,7 @@
       g.addEventListener("pointerenter", () => { hovered = i; paint(); });
       g.addEventListener("pointerleave", () => { if (hovered === i) { hovered = null; paint(); } });
     });
-    svg.setAttribute("aria-label", n ? T.wheelLabel(wheel.name, wheel.labels) : T.toolsLabel);
+    svg.setAttribute("aria-label", T.wheelLabel(wheel.name, wheel.labels));
     buttons.forEach(b => b.setAttribute("aria-pressed", String(b.dataset.kind === kind)));
     panels.forEach(p => p.classList.toggle("on", p.dataset.kind === kind));
     paint();
