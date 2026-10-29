@@ -16,6 +16,9 @@
 
   // Wheel labels follow the rendered page after the inline language routing.
   // Words that change with the page's language. The wheel labels are the app's own (Korean or English UI).
+  // Team pages share language choice but have no download button or demo wheel.
+  if (!document.getElementById("wheel")) return;
+
   const T = KO ? {
     get: v => `Orange ${v} 받기`,
     meta: (mb, d) => `DMG 파일, ${mb} MB, ${d.getFullYear()}년 ${d.getMonth() + 1}월 ${d.getDate()}일`,

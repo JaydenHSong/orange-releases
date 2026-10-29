@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en" data-language-en="../team/" data-language-ko="../ko/team/">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About the Orange team — Orange</title>
+<meta name="description" content="Orange is a small team started by two people: Stella, a designer, and Robin, a developer. We build a tool for people who drag files around hundreds of times a day, so that one key mid-drag is all it takes.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="../assets/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="alternate" hreflang="en" href="https://jaydenhsong.github.io/orange-releases/team/">
+<link rel="alternate" hreflang="ko" href="https://jaydenhsong.github.io/orange-releases/ko/team/">
+<link rel="alternate" hreflang="x-default" href="https://jaydenhsong.github.io/orange-releases/team/">
+<script>(() => {
+  const current = document.documentElement.lang;
+  const valid = value => value === "en" || value === "ko";
+  const requested = new URLSearchParams(location.search).get("lang");
+  let choice = valid(requested) ? requested : null;
+  try {
+    if (choice) localStorage.setItem("orange.language", choice);
+    else choice = localStorage.getItem("orange.language");
+  } catch (_) {}
+  if (!valid(choice)) choice = null;
+  const preferred = (navigator.languages || [navigator.language || "en"])
+    .map(value => value.toLowerCase().split("-")[0]).find(valid);
+  const target = choice || (current === "en" && preferred === "ko" ? "ko" : current);
+  if (target !== current) {
+    const routes = document.documentElement.dataset || {};
+    const destination = routes[target === "ko" ? "languageKo" : "languageEn"] ||
+      (current === "ko" ? "../" : "./") + (target === "ko" ? "ko/" : "");
+    location.replace(destination + location.search + location.hash);
+  }
+})();</script>
+</head>
+<body>
+<header class="bar">
+  <div class="bar-in">
+    <a class="brand" href="../"><svg viewBox="0 0 1024 1024" aria-hidden="true"><use href="#icon"></use></svg>Orange</a>
+    <nav><a href="https://github.com/JaydenHSong/orange-releases/releases">All versions</a><a data-language="ko" href="../ko/team/" hreflang="ko" lang="ko">한국어</a></nav>
+  </div>
+</header>
+<main class="team-page" id="top">
+  <section class="team-hero">
+    <h1>Made by two.</h1>
+    <p class="team-intro">Orange is a small team started by two people: Stella, a designer, and Robin, a developer. We build a tool for people who drag files around hundreds of times a day, so that one key mid-drag is all it takes.</p>
+    <img src="../assets/team/team.jpg" width="1200" height="800" loading="lazy" alt="Stella and Robin, co-founders of Orange">
+  </section>
+  <section class="team-people" aria-label="About the Orange team">
+<article class="team-person">
+<img src="../assets/team/stella.jpg" width="600" height="800" loading="lazy" alt="Portrait of Stella, Orange co-founder and designer">
+<div><h2>Stella</h2><p class="team-role">Co-founder, Design</p><p>Stella draws the wheel and the way it moves. The six-segment wheel, the three themes, the app icon and every Settings pane start on her desk. She likes screens that let people think less, and she collects photos of orange cross-sections.</p></div>
+</article>
+<article class="team-person">
+<img src="../assets/team/robin.jpg" width="600" height="800" loading="lazy" alt="Portrait of Robin, Orange co-founder and engineer">
+<div><h2>Robin</h2><p class="team-role">Co-founder, Engineering</p><p>Robin builds everything from the engine that notices a drag to image, audio and video conversion, signing and releases. He keeps the promise that the original is never touched, and he is happiest when every test is green.</p></div>
+</article>
+  </section>
+  <section class="team-work">
+    <h2>How we work</h2>
+    <ul><li><strong>Drag, tap, drop.</strong> Before adding a feature, we look for a step to remove.</li>
+<li><strong>Files stay on your Mac.</strong> Every conversion and edit runs on this Mac.</li>
+<li><strong>The original stays.</strong> Results always go next to it as new files, and only after we check them again.</li>
+<li><strong>We use it before we ship it.</strong> Every Friday, each of us tries the other&#x27;s week of work on our own Mac.</li>
+<li><strong>Small and often.</strong> One thing that works today beats a big promise.</li>
+<li><strong>Two people, quick calls.</strong> Decisions happen the same day; when we disagree, the easier path for people using Orange wins.</li></ul>
+  </section>
+  <section class="team-gallery">
+    <h2>Working together</h2>
+    <div><img src="../assets/team/work-1.jpg" width="1200" height="800" loading="lazy" alt="Stella points at a wheel sketch on the whiteboard while Robin laughs">
+<img src="../assets/team/work-2.jpg" width="1200" height="800" loading="lazy" alt="Stella and Robin chat over coffee at the kitchen counter">
+<img src="../assets/team/work-3.jpg" width="1200" height="800" loading="lazy" alt="Stella and Robin high-five at their desk"></div>
+  </section>
+  <section class="team-closing">
+    <p>With a team of two, one message reaches us. Tell us what gets in your way on GitHub at <a href="https://github.com/JaydenHSong/orange-releases/issues">orange-releases</a>.</p>
+    <p class="team-disclosure">Stella and Robin are fictional characters created to introduce the Orange team; their photos are AI-generated.</p>
+  </section>
+</main>
+<footer class="foot">
+  <p><a href="./">About the Orange team</a></p>
+  <p>Downloads and release notes are on GitHub at <a href="https://github.com/JaydenHSong/orange-releases/releases">JaydenHSong/orange-releases</a>.</p>
+  <p>Signed with the company's Developer ID and notarized by Apple.</p>
+</footer>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<linearGradient id="icon-bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" style="stop-color: var(--icon-a)"/><stop offset="1" style="stop-color: var(--icon-b)"/></linearGradient>
+<linearGradient id="hot" x1="0" y1="0" x2="1" y2="1"><stop offset="0" style="stop-color: var(--chosen-a)"/><stop offset="1" style="stop-color: var(--chosen-b)"/></linearGradient>
+<linearGradient id="thumb" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffb347"/><stop offset="1" stop-color="#ff6a00"/></linearGradient>
+<symbol id="icon" viewBox="0 0 1024 1024"><rect x="20" y="20" width="984" height="984" rx="224" fill="url(#icon-bg)" stroke="var(--line)" stroke-width="8"/>
+<g transform="translate(512 512) scale(0.86) translate(-512 -512)"><g style="fill: var(--sector); stroke: var(--sector)" stroke-width="44.7" stroke-linejoin="round">
+<path d="M349.3 153.2A393.9 393.9 0 0 1 674.7 153.2L590.7 298.6A227.4 227.4 0 0 0 433.3 298.6Z"/><path d="M904.1 550.5A393.9 393.9 0 0 1 741.4 832.3L657.4 686.8A227.4 227.4 0 0 0 736.1 550.5Z"/>
+<path d="M674.7 870.8A393.9 393.9 0 0 1 349.3 870.8L433.3 725.4A227.4 227.4 0 0 0 590.7 725.4Z"/><path d="M282.6 832.3A393.9 393.9 0 0 1 119.9 550.5L287.9 550.5A227.4 227.4 0 0 0 366.6 686.8Z"/>
+<path d="M119.9 473.5A393.9 393.9 0 0 1 282.6 191.7L366.6 337.2A227.4 227.4 0 0 0 287.9 473.5Z"/></g>
+<path transform="translate(29.8 -17.4)" d="M741.4 191.7A393.9 393.9 0 0 1 904.1 473.5L736.1 473.5A227.4 227.4 0 0 0 657.4 337.2Z" fill="url(#hot)" stroke="url(#hot)" stroke-width="44.7" stroke-linejoin="round"/></g></symbol>
+</defs></svg>
+<script src="../assets/site.js"></script>
+</body>
+</html>

@@ -346,3 +346,28 @@ details p { margin: 0 0 24px; color: var(--mute); font-size: 17px; line-height: 
   .stage { border-radius: 20px; margin-top: 48px; }
   .bar nav { gap: 16px; }
 }
+
+/* Team: shared palette and typography, with intrinsic image sizes reserved before load. */
+.team-page { max-width: 1080px; margin: 0 auto; overflow-wrap: anywhere; }
+.team-page section { padding: 48px 28px; }
+.team-page img { display: block; width: 100%; height: auto; object-fit: cover; border-radius: 20px; background: var(--raised); }
+.team-page h1 { font-family: var(--round); font-size: clamp(40px, 7vw, 76px); line-height: 1.1; margin: 16px 0 24px; }
+.team-page h2 { font-family: var(--round); font-size: clamp(26px, 4vw, 36px); line-height: 1.2; margin: 0 0 18px; }
+.team-intro { max-width: 740px; color: var(--mute); font-size: clamp(18px, 2.5vw, 23px); margin: 0 0 36px; }
+.team-people { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px; }
+.team-person { min-width: 0; border: 1px solid var(--line); border-radius: 24px; background: var(--raised); overflow: hidden; }
+.team-person img { border-radius: 0; aspect-ratio: 3 / 4; }
+.team-person > div { padding: 28px; }
+.team-person p { margin: 0; }
+.team-person .team-role { margin: -6px 0 18px; color: var(--mute); font-size: 15px; }
+.team-work ul { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 40px; }
+.team-work li { color: var(--mute); }
+.team-work strong { display: block; margin-bottom: 6px; color: var(--ink); }
+.team-gallery > div { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.team-closing { max-width: 800px; }
+.team-disclosure { margin-top: 24px; font-size: 13px; color: var(--mute); }
+@media (max-width: 600px) {
+  .team-page section { padding: 32px 20px; }
+  .team-people, .team-work ul, .team-gallery > div { grid-template-columns: minmax(0, 1fr); }
+  .team-person > div { padding: 24px; }
+}

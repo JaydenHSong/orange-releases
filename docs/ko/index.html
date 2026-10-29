@@ -25,8 +25,10 @@
     .map(value => value.toLowerCase().split("-")[0]).find(valid);
   const target = choice || (current === "en" && preferred === "ko" ? "ko" : current);
   if (target !== current) {
-    location.replace((current === "ko" ? "../" : "./") +
-      (target === "ko" ? "ko/" : "") + location.search + location.hash);
+    const routes = document.documentElement.dataset || {};
+    const destination = routes[target === "ko" ? "languageKo" : "languageEn"] ||
+      (current === "ko" ? "../" : "./") + (target === "ko" ? "ko/" : "");
+    location.replace(destination + location.search + location.hash);
   }
 })();</script>
 <script>document.documentElement.classList.add("js")</script>
@@ -147,6 +149,7 @@
   </section>
 </main>
 <footer class="foot">
+  <p><a href="team/">Orange 팀 소개</a></p>
   <p>배포 파일과 변경 내용은 GitHub의 <a href="https://github.com/JaydenHSong/orange-releases/releases">JaydenHSong/orange-releases</a>에 있습니다.</p>
   <p>회사 Developer ID로 서명하고 Apple의 공증을 받았습니다.</p>
 </footer>
