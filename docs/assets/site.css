@@ -236,7 +236,6 @@ section { padding: 140px 24px; }
 @keyframes b3 { 0%, 54% { opacity: 0.25; } 58%, 88% { opacity: 1; } 94%, 100% { opacity: 0.25; } }
 
 /* What's new */
-.news { padding-top: 64px; padding-bottom: 80px; }
 .release-list { list-style: none; max-width: 1000px; margin: 48px auto 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px; }
 .release-list li { min-width: 0; border-top: 1px solid var(--line); padding-top: 24px; }
 .release-list h3 { font-size: 24px; line-height: 1.2; }
