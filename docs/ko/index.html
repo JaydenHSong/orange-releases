@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Orange</title>
-<meta name="description" content="Finder에서 파일을 끌다가 조합키를 탭하면 포인터 자리에 휠이 뜨는 macOS 앱.">
+<meta name="description" content="Finder에서 파일을 끌다가 조합키를 톡하면 포인터 자리에 휠이 뜨는 macOS 앱.">
 <meta name="color-scheme" content="light dark">
 <link rel="icon" href="../assets/icon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="../assets/site.css">
@@ -43,13 +43,13 @@
 <main id="top">
   <section class="hero">
     <svg class="hero-icon" viewBox="0 0 1024 1024" aria-hidden="true"><use href="#icon"></use></svg>
-    <h1>끌다가 탭하면, 휠.</h1>
-    <p class="lede">Finder에서 파일을 끄는 중에 조합키를 한 번 탭하세요. 포인터 자리에 휠이 뜨고, 칸 위에 놓으면 끝입니다.</p>
+    <h1>끌다가 톡하면, 휠.</h1>
+    <p class="lede">Finder에서 파일을 끄는 중에 조합키를 한 번 톡하세요. 포인터 자리에 휠이 뜨고, 칸 위에 놓으면 끝입니다.</p>
     <div class="cta">
       <a class="get" id="get" href="https://github.com/JaydenHSong/orange-releases/releases/latest"><span id="get-label">Orange 받기</span></a>
       <p class="get-meta"><span id="get-meta">GitHub의 최신 버전 페이지에서 받습니다.</span><br>Apple Silicon Mac, macOS 15 이상<br>macOS 14는 <a href="https://github.com/JaydenHSong/orange-releases/releases/tag/v1.1.1">Orange 1.1.1</a>을 쓰세요.<br>macOS 13은 <a href="https://github.com/JaydenHSong/orange-releases/releases/tag/v1.0.0">Orange 1.0.0</a>을 쓰세요.</p>
     </div>
-    <div class="stage" id="stage" role="img" aria-label="파일을 끌다가 Shift를 탭하면 휠이 열리고, JPG 칸에 놓으면 옆에 JPG 파일이 생기는 장면">
+    <div class="stage" id="stage" role="img" aria-label="파일을 끌다가 Shift를 톡하면 휠이 열리고, JPG 칸에 놓으면 옆에 JPG 파일이 생기는 장면">
       <div class="finder"><div class="finder-bar"><i></i><i></i><i></i><span>데스크탑</span></div></div>
       <div class="file orig"><svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7" fill="url(#thumb)"/><path d="M5 25l7-9 5 6 3-3 7 6z" fill="#fff" opacity=".92"/><circle cx="22" cy="9" r="3" fill="#fff" opacity=".92"/></svg><span>사진.png</span></div>
       <div class="file made"><svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7" fill="url(#thumb)"/><path d="M5 25l7-9 5 6 3-3 7 6z" fill="#fff" opacity=".92"/><circle cx="22" cy="9" r="3" fill="#fff" opacity=".92"/></svg><span>사진.jpg</span></div>
@@ -57,7 +57,15 @@
       <div class="hand"><div class="ghost"><svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7" fill="url(#thumb)"/><path d="M5 25l7-9 5 6 3-3 7 6z" fill="#fff" opacity=".92"/><circle cx="22" cy="9" r="3" fill="#fff" opacity=".92"/></svg></div><svg class="cursor" viewBox="0 0 16 24" aria-hidden="true"><path d="M1 1v18.5l4.6-4.4 3.2 7.2 3-1.3-3.1-7h6.3z" fill="#fff" stroke="#000" stroke-width="1.3" stroke-linejoin="round"/></svg></div>
       <div class="keycap"><b>⇧</b>Shift</div>
     </div>
-    <p class="beats" aria-hidden="true"><span class="beat b1">끌고</span><span class="beat b2">탭하고</span><span class="beat b3">놓으면 끝</span></p>
+    <p class="beats" aria-hidden="true"><span class="beat b1">끌고</span><span class="beat b2">톡하고</span><span class="beat b3">놓으면 끝</span></p>
+  </section>
+
+  <section class="news" aria-labelledby="news-heading">
+    <div class="center reveal"><h2 id="news-heading">새로워진 점.</h2></div>
+    <ul class="release-list">
+<li><p class="release-version">1.2.2</p><h3>설정이 더 간결해졌습니다.</h3><p>목록은 늘 보이고, 휠 단축키는 키 모양 칸으로, 형식은 이미지·오디오·비디오 탭에 한 줄씩 정리했습니다. 테마는 큰 미리보기로 바로 확인합니다.</p><a href="https://github.com/JaydenHSong/orange-releases/releases/tag/v1.2.2">릴리스 노트</a></li>
+<li><p class="release-version">1.2.1</p><h3>끌자마자 톡, 첫 번에 휠.</h3><p>포인터를 멈춘 채 조합키를 톡해도 첫 번에 휠이 뜹니다. Orange는 Mac의 언어를 따르고, 설정에서 English나 한국어를 고를 수 있습니다.</p><a href="https://github.com/JaydenHSong/orange-releases/releases/tag/v1.2.1">릴리스 노트</a></li>
+    </ul>
   </section>
 
   <section class="wheels">
@@ -140,7 +148,7 @@
     <div class="faq">
 <details><summary>1.2.0 미디어의 제한은?</summary><p>한 번에 한 파일을 로컬에서 편집합니다. 클라우드 제공자 파일은 로컬 폴더로 복사하세요. 형식에 따라 미리 재생할 수 없거나 Metadata가 보기 전용이며, 목표 용량을 맞출 수 없으면 이유를 안내합니다. HDR→SDR 변환은 밝기·색 손실을 먼저 확인합니다. HDR10+와 Dolby Vision profile 5의 색 처리는 실제 기기 영상 없이는 검증되지 않았습니다. Dolby Vision profile 5와 12-bit 입력은 지원하지 않습니다. Mute의 HDR 보존은 재인코딩 없는 호환 컨테이너에 한합니다. VoiceOver를 먼저 켜면 응용 프로그램 선택기에 Orange가 안 보일 수 있습니다(1.1.0부터). 편집 창은 사용할 수 있고, 창을 연 채 VoiceOver를 껐다 켜면 목록에 나타납니다.</p></details>
 <details><summary>미디어 라이선스와 소스는?</summary><p>FFmpeg, LAME, Opus, Ogg, Vorbis, libvpx, dav1d, zimg 및 IJG, zlib, WTFPL 고지와 전문을 About에서 오프라인으로 읽습니다. 대응 소스·재링크 자료와 SHA256SUMS는 1.2.0 릴리스 다운로드에 함께 제공합니다.</p></details>
-<details><summary>휠이 뜨지 않아요</summary><p>마우스 단추를 누른 채 끄는 동안 조합키를 짧게 한 번 탭해야 합니다. 길게 누르면 탭이 아닙니다. Tangerine처럼 조합키로 휠을 여는 다른 앱이 켜져 있으면 그 앱을 끄거나, 설정 › 일반에서 Orange의 조합키를 바꾸세요.</p></details>
+<details><summary>휠이 뜨지 않아요</summary><p>마우스 단추를 누른 채 끄는 동안 조합키를 짧게 한 번 톡 하세요. 누르고 있으면 톡이 아닙니다. Tangerine처럼 조합키로 휠을 여는 다른 앱이 켜져 있으면 그 앱을 끄거나, 설정 › 일반에서 Orange의 조합키를 바꾸세요.</p></details>
 <details><summary>폴더를 쓸 수 없다고 나와요</summary><p>시스템 설정 › 개인정보 보호 및 보안 › 파일 및 폴더에서 Orange 아래의 그 폴더를 켜세요. 시작하기 셋째 쪽의 설정 열기도 같은 화면을 엽니다.</p></details>
 <details><summary>⌃⌥O를 눌러도 휠이 안 떠요</summary><p>Finder에서 파일을 먼저 고르세요. Finder 선택을 볼 수 없다고 나오면 시스템 설정 › 개인정보 보호 및 보안 › 자동화에서 Orange 아래의 Finder를 켜세요. 다른 앱이 같은 단축키를 쓰면 설정 › 일반에서 바꿉니다.</p></details>
 <details><summary>“응용 프로그램 폴더로 옮겨 주세요”가 계속 떠요</summary><p>DMG 안이나 받은 폴더에서 켠 상태입니다. Orange를 끄고 응용 프로그램 폴더로 옮긴 뒤 거기서 켜세요. 그래야 업데이트도 받습니다.</p></details>

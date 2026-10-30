@@ -235,6 +235,14 @@ section { padding: 140px 24px; }
 @keyframes b2 { 0%, 36% { opacity: 0.25; } 39%, 50% { opacity: 1; } 54%, 100% { opacity: 0.25; } }
 @keyframes b3 { 0%, 54% { opacity: 0.25; } 58%, 88% { opacity: 1; } 94%, 100% { opacity: 0.25; } }
 
+/* What's new */
+.news { padding-top: 64px; padding-bottom: 80px; }
+.release-list { list-style: none; max-width: 1000px; margin: 48px auto 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px; }
+.release-list li { min-width: 0; border-top: 1px solid var(--line); padding-top: 24px; }
+.release-list h3 { font-size: 24px; line-height: 1.2; }
+.release-list p { margin: 14px 0; color: var(--mute); }
+.release-list .release-version { margin: 0 0 10px; font-size: 14px; font-weight: 600; }
+
 /* Four wheels: the wheel stays while the panels scroll past it. */
 .wheels { background: var(--raised); }
 .story { max-width: 1080px; margin: 64px auto 0; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 48px; }
@@ -324,6 +332,7 @@ details p { margin: 0 0 24px; color: var(--mute); font-size: 17px; line-height: 
 
 @media (max-width: 860px) {
   section { padding: 96px 20px; }
+  .release-list { grid-template-columns: minmax(0, 1fr); gap: 32px; margin-top: 32px; }
   .story { grid-template-columns: minmax(0, 1fr); gap: 0; margin-top: 40px; }
   .story-wheel { top: 48px; z-index: 2; background: var(--raised); padding: 12px 0 14px; }
   .wheel { width: min(250px, 70vw); }
