@@ -26,7 +26,7 @@
     file: "사진.png",
     wheels: {
       convert: { name: "변환", labels: ["JPG", "WEBP", "HEIC", "TIFF", "BMP", "PDF"], rest: 1 },
-      actions: { name: "동작", labels: ["AirDrop", "Float", "복사", "이동", "경로 복사", "터미널"], rest: null },
+      actions: { name: "동작", labels: ["AirDrop", "공유", "띄워 두기", "복사", "이동", "경로 복사", "훑어보기", "다음으로 열기", "터미널"], rest: null },
       presets: { name: "프리셋", labels: ["Web JPG", "썸네일", "인쇄용 TIFF"], rest: 0 },
       tools:   { name: "도구", labels: ["압축", "메타데이터", "편집", "주석", "배경", "자르기", "가리기"], rest: null },
     },
@@ -37,7 +37,7 @@
     file: "photo.png",
     wheels: {
       convert: { name: "Convert", labels: ["JPG", "WEBP", "HEIC", "TIFF", "BMP", "PDF"], rest: 1 },
-      actions: { name: "Actions", labels: ["AirDrop", "Float", "Copy", "Move", "Copy Path", "Terminal"], rest: null },
+      actions: { name: "Actions", labels: ["AirDrop", "Share", "Float", "Copy", "Move", "Copy Path", "Quick Look", "Open With", "Terminal"], rest: null },
       presets: { name: "Presets", labels: ["Web JPG", "Thumbnail", "Print TIFF"], rest: 0 },
       tools:   { name: "Tools", labels: ["Compress", "Metadata", "Edit", "Annotate", "Add BG", "Crop", "Redact"], rest: null },
     },

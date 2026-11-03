@@ -47,7 +47,7 @@
     <p class="lede">Tap a modifier key once while you drag files in Finder. A wheel opens under the pointer; let go on a segment and you're done.</p>
     <div class="cta">
       <a class="get" id="get" href="https://github.com/JaydenHSong/orange-releases/releases/latest"><span id="get-label">Download Orange</span></a>
-      <p class="get-meta"><span id="get-meta">From the latest release on GitHub.</span><br>Apple Silicon Mac, macOS 15 or later<br>On macOS 14, use <a href="https://github.com/JaydenHSong/orange-releases/releases/tag/v1.1.1">Orange 1.1.1</a>.<br>On macOS 13, use <a href="https://github.com/JaydenHSong/orange-releases/releases/tag/v1.0.0">Orange 1.0.0</a>.</p>
+      <p class="get-meta"><span id="get-meta">From the latest release on GitHub.</span><br>Apple Silicon Mac, macOS 15 or later<br>It doesn't open on Intel Macs.<br>On macOS 14, use <a href="https://github.com/JaydenHSong/orange-releases/releases/tag/v1.1.1">Orange 1.1.1</a>.<br>On macOS 13, use <a href="https://github.com/JaydenHSong/orange-releases/releases/tag/v1.0.0">Orange 1.0.0</a>.</p>
     </div>
     <div class="stage" id="stage" role="img" aria-label="A file is dragged, Shift is tapped, the wheel opens, and dropping on JPG puts a JPG file next to the original">
       <div class="finder"><div class="finder-bar"><i></i><i></i><i></i><span>Desktop</span></div></div>
@@ -124,14 +124,14 @@
   <section class="news" aria-labelledby="news-heading">
     <div class="center reveal"><h2 id="news-heading">What's new.</h2></div>
     <ul class="release-list">
-<li><p class="release-version">1.2.7</p><h3>Never miss an update.</h3><p>When a new version is out, its install window opens once, and after Later a notification comes once a day until you install. The menu bar&#x27;s orange dot, an install item at the top of the menu and an Install button on the result shelf point to it too.</p><a href="https://github.com/JaydenHSong/orange-releases/releases/tag/v1.2.7">Release notes</a></li>
 <li><p class="release-version">1.3.0</p><h3>Documents, archives and subtitles on the wheel.</h3><p>Merge, split and compress PDFs, turn documents and tables into PDFs, repack archives or extract them to their own folder, and convert subtitles. Everything runs on this Mac and the original stays untouched.</p><a href="https://github.com/JaydenHSong/orange-releases/releases/tag/v1.3.0">Release notes</a></li>
 <li><p class="release-version">1.3.1</p><h3>A new editor that works like your Mac.</h3><p>Annotate on the wheel and screenshot editing open in one Markup window. Draw, add shapes and text, crop and redact, then save a verified copy next to the original.</p><a href="https://github.com/JaydenHSong/orange-releases/releases/tag/v1.3.1">Release notes</a></li>
+<li><p class="release-version">1.3.2</p><h3>The Actions wheel gains Share, Quick Look and Open With.</h3><p>View and copy verification records on the result shelf, see shortcut hints while dragging, and convert longer MP4, MOV and MKV videos.</p><a href="https://github.com/JaydenHSong/orange-releases/releases/tag/v1.3.2">Release notes</a></li>
     </ul>
     <div class="coming">
       <h3 id="coming-heading">Coming next</h3>
       <ol class="coming-list" aria-labelledby="coming-heading">
-<li><p class="release-version">1.3.2</p><h4>The Actions wheel gains Share, Quick Look and Open With.</h4><p>View and copy verification records on the result shelf, see shortcut hints while dragging, and convert longer MP4, MOV and MKV videos.</p></li>
+<li><p class="release-version">1.3.3</p><h4>Results appear next to the original.</h4><p>Whatever you convert, the result copy appears in the original&#x27;s folder. If Orange can&#x27;t save there, it saves to Documents › Orange and tells you where.</p></li>
       </ol>
       <p class="coming-note">Order and details may change.</p>
     </div>
@@ -139,21 +139,44 @@
 
   <section class="next">
     <div class="center reveal">
-      <h2>Next: 1.3.</h2>
-      <p class="sub">Documents, tables, archives and subtitles, straight from a drag. Still in the works, so details may change.</p>
+      <h2>Next: 1.4.</h2>
+      <p class="sub">Drag, pause and choose. Still in the works, so details may change.</p>
     </div>
     <div class="tiles">
-<div class="tile half"><p class="big-keys"><kbd>⇧</kbd></p><h3>Documents</h3><p>PDF to JPG, PNG, text, Markdown and EPUB. Text, Markdown and RTF to PDF. Word (DOCX) and Excel (XLSX) to PDF, with a note on anything that may look different from the original.</p></div>
-<div class="tile half"><p class="big-keys"><kbd>⌘</kbd></p><h3>PDF tools</h3><p>Compress, Metadata, Split, Organize, Merge and Read QR.</p></div>
-<div class="tile half"><p class="big-keys"><kbd>⇧</kbd><kbd>⌘</kbd></p><h3>Archives</h3><p>ZIP, TAR and GZIP to each other; a single unencrypted RAR to ZIP, TAR or GZIP. Extract straight from the tools wheel.</p></div>
-<div class="tile half"><p class="big-keys"><kbd>⇧</kbd></p><h3>Tables and subtitles</h3><p>CSV and TSV to each other or to PDF. SRT and VTT subtitles to each other or to text.</p></div>
+<div class="tile half"><svg class="next-art" viewBox="0 0 480 260" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><circle cx="80" cy="116" r="55" stroke="var(--line)" stroke-width="5"/>
+<circle cx="80" cy="116" r="55" stroke="var(--chip)" stroke-width="9" stroke-dasharray="260 346" transform="rotate(-90 80 116)"/>
+<path d="M59 82h27l18 18v46H59z" fill="var(--paper)" stroke="var(--ink)"/>
+<path d="M86 82v18h18M70 116h21m-21 12h15" stroke="var(--mute)"/>
+<path d="M105 133v38l10-10 8 17 7-3-8-17h16z" fill="var(--ink)" stroke="var(--raised)"/>
+<text x="80" y="203" class="art-chip" fill="var(--chip)">Pause</text>
+<path d="M156 126h32m-10-10 10 10-10 10" stroke="var(--ink)"/><path d="M72.95 60.93A146 146 0 0 1 267.05 60.93L208.84 119.14A64 64 0 0 0 131.16 119.14Z" transform="translate(205.7 -4.3) scale(.79)" fill="var(--sector)" stroke="var(--sector)"/><text x="340.0" y="47.1" class="art-label art-sector-label" fill="#fff">Convert</text><path d="M279.07 72.95A146 146 0 0 1 279.07 267.05L220.86 208.84A64 64 0 0 0 220.86 131.16Z" transform="translate(205.7 -4.3) scale(.79)" fill="var(--chosen-a)" stroke="var(--chosen-a)"/><text x="422.9" y="130.0" class="art-label art-sector-label" fill="#fff">Tools</text><path d="M267.05 279.07A146 146 0 0 1 72.95 279.07L131.16 220.86A64 64 0 0 0 208.84 220.86Z" transform="translate(205.7 -4.3) scale(.79)" fill="var(--chosen-b)" stroke="var(--chosen-b)"/><text x="340.0" y="212.9" class="art-label art-sector-label" fill="#fff">Actions</text><path d="M60.93 267.05A146 146 0 0 1 60.93 72.95L119.14 131.16A64 64 0 0 0 119.14 208.84Z" transform="translate(205.7 -4.3) scale(.79)" fill="var(--chip)" stroke="var(--chip)"/><text x="257.1" y="130.0" class="art-label art-sector-label" fill="#fff">Presets</text><circle cx="340" cy="130" r="40" fill="var(--paper)" stroke="var(--line)"/><circle cx="340" cy="130" r="10" fill="var(--chip)"/></svg><h3>Pause to open one wheel</h3><p>Pause while dragging a file in Finder or on the desktop. One wheel opens without a key. Choose Convert, Tools, Actions or Presets in one place.</p></div>
+<div class="tile half"><svg class="next-art" viewBox="0 0 480 260" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><g transform="translate(12 44)"><rect y="6" width="102" height="112" rx="20" fill="var(--line)"/><rect width="102" height="112" rx="20" fill="var(--paper)" stroke="var(--mute)"/><text x="51" y="51" class="art-key" fill="var(--ink)">⇧</text><rect x="15" y="88" width="72" height="10" rx="5" fill="var(--sector)"/><text x="51" y="154" class="art-label" fill="var(--ink)">Convert</text></g><g transform="translate(130 44)"><rect y="6" width="102" height="112" rx="20" fill="var(--line)"/><rect width="102" height="112" rx="20" fill="var(--paper)" stroke="var(--mute)"/><text x="51" y="51" class="art-key" fill="var(--ink)">⌘</text><rect x="15" y="88" width="72" height="10" rx="5" fill="var(--chosen-a)"/><text x="51" y="154" class="art-label" fill="var(--ink)">Tools</text></g><g transform="translate(248 44)"><rect y="6" width="102" height="112" rx="20" fill="var(--line)"/><rect width="102" height="112" rx="20" fill="var(--paper)" stroke="var(--mute)"/><text x="51" y="51" class="art-key" fill="var(--ink)">⌃</text><rect x="15" y="88" width="72" height="10" rx="5" fill="var(--chosen-b)"/><text x="51" y="154" class="art-label" fill="var(--ink)">Actions</text></g><g transform="translate(366 44)"><rect y="6" width="102" height="112" rx="20" fill="var(--line)"/><rect width="102" height="112" rx="20" fill="var(--paper)" stroke="var(--mute)"/><text x="51" y="51" class="art-key" fill="var(--ink)">⌥</text><rect x="15" y="88" width="72" height="10" rx="5" fill="var(--chip)"/><text x="51" y="154" class="art-label" fill="var(--ink)">Presets</text></g></svg><h3>Keys are still the quick way</h3><p>Tap a familiar key to open its branch right away: ⇧ for Convert, ⌘ for Tools, ⌃ for Actions and ⌥ for Presets.</p></div>
+<div class="tile half"><svg class="next-art" viewBox="0 0 480 260" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M60 121V86q0-12 12-12h82l23 24h183q12 0 12 12v112H60z" fill="var(--sector)" stroke="var(--chip)"/>
+<g fill="var(--paper)" stroke="var(--ink)">
+<rect x="112" y="36" width="86" height="143" rx="8" transform="rotate(-25 155 179)"/>
+<rect x="178" y="19" width="86" height="154" rx="8" transform="rotate(-6 221 173)"/>
+<rect x="244" y="34" width="86" height="143" rx="8" transform="rotate(20 287 177)"/></g>
+<path d="M195 54h48m-48 18h36" stroke="var(--mute)"/>
+<path d="M52 129h330l-20 96q-2 14-18 14H86q-16 0-18-14z" fill="var(--sector)" stroke="var(--chip)"/>
+<rect x="318" y="170" width="136" height="68" rx="34" fill="var(--chip)" stroke="var(--raised)" stroke-width="4"/>
+<text x="386" y="204" class="art-badge" fill="#fff">500</text></svg><h3>Drop a folder or many files</h3><p>Drop a folder or several files at once. Process up to 500 files, including files in subfolders. Files that do not fit are skipped with a reason.</p></div>
+<div class="tile half"><svg class="next-art" viewBox="0 0 480 260" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><rect x="24" y="18" width="432" height="210" rx="20" fill="var(--paper)" stroke="var(--mute)"/>
+<rect x="40" y="34" width="400" height="174" rx="10" fill="var(--sector)"/>
+<circle cx="366" cy="76" r="20" fill="#fff"/>
+<path d="m40 188 109-106 82 80 54-44 155 90H40z" fill="var(--chosen-b)"/>
+<rect x="272" y="155" width="150" height="38" rx="8" fill="var(--paper)"/>
+<text x="347" y="175" class="art-watermark" fill="var(--ink)">© Robin</text>
+<rect x="118" y="202" width="244" height="50" rx="25" fill="var(--paper)" stroke="var(--chip)" stroke-width="4"/>
+<path d="m139 227 8 8 14-16" stroke="var(--chip)" stroke-width="4"/>
+<text x="255" y="228" class="art-chip" fill="var(--ink)">Preset</text></svg><h3>Presets with your text</h3><p>Set photo size and quality once, then use them again. Add text such as your name as a watermark, too.</p></div>
     </div>
-    <p class="note">Turning a PDF back into editable Word, Excel or PowerPoint is not part of 1.3.</p>
+    <p class="note">After that: extract text from photos in 1.4.1, then collect photos in one contact sheet PDF in 1.4.2.</p>
   </section>
 
   <section class="help">
     <div class="center reveal"><h2>If something goes wrong.</h2></div>
     <div class="faq">
+<details><summary>It doesn't open on Intel Macs</summary><p>Orange is only for Macs with Apple silicon (M1 or later). On Intel Macs, macOS says Orange is not supported on this Mac, and it won't open.</p></details>
 <details><summary>What are the media limits in 1.2.0?</summary><p>Edit one local file at a time. Copy provider files to a local folder first. Some containers cannot preview or offer view-only Metadata. If a target size cannot be met, Orange explains why. HDR to SDR conversion asks before losing brightness or colour detail. HDR10+ and Dolby Vision profile 5 colour handling is unverified without device footage. Dolby Vision profile 5 and 12-bit input are unsupported. Mute preserves HDR only in compatible containers without re-encoding. The VoiceOver application chooser may omit Orange when VoiceOver starts first (since 1.1.0). Editor windows remain accessible; toggle VoiceOver with an editor open to restore the listing.</p></details>
 <details><summary>Where are the media licences and sources?</summary><p>Read full FFmpeg, LAME, Opus, Ogg, Vorbis, libvpx, dav1d and zimg notices, including IJG, zlib and WTFPL, offline in About. Corresponding sources, relink materials and SHA256SUMS are alongside the 1.2.0 release downloads.</p></details>
 <details><summary>The wheel doesn't open</summary><p>Tap the modifier key briefly while you drag, with the mouse button down. Holding it isn't a tap. If another app that opens a wheel on modifier taps is running, such as Tangerine, quit it or change Orange's keys in Settings › General.</p></details>
