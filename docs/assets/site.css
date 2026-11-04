@@ -237,7 +237,10 @@ section { padding: 140px 24px; }
 
 /* What's new */
 .release-list { list-style: none; max-width: 1000px; margin: 48px auto 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 40px; }
-.release-list li { min-width: 0; border-top: 1px solid var(--line); padding-top: 24px; }
+.release-list > li { min-width: 0; border-top: 1px solid var(--line); padding-top: 24px; }
+.release-featured { grid-column: 1 / -1; }
+.release-items { padding-left: 24px; color: var(--mute); line-height: 1.5; }
+.release-items li + li { margin-top: 10px; }
 .release-list h3 { font-size: 22px; line-height: 1.25; }
 .release-list p { margin: 14px 0; color: var(--mute); }
 .release-list .release-version { margin: 0 0 10px; font-size: 14px; font-weight: 600; }
