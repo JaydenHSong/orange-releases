@@ -311,15 +311,6 @@ figcaption { margin-top: 16px; font-size: 14px; color: var(--mute); }
 .tile.wide { grid-column: span 4; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 230px); gap: 32px; align-items: center; }
 .tile.kb, .tile.esc { grid-column: span 2; }
 .tile.half { grid-column: span 3; }
-/* Extend into the tile padding so the artwork occupies about 90% of the card. */
-.next-art { display: block; width: calc(100% + 32px); max-width: 480px; height: auto; margin: 0 0 28px; position: relative; left: 50%; transform: translateX(-50%); }
-.next-art text { font-family: var(--round); font-weight: 750; text-anchor: middle; dominant-baseline: central; }
-.next-art .art-label { font-size: 20px; }
-.next-art .art-sector-label { font-size: 18px; font-weight: 800; paint-order: stroke fill; stroke: var(--sector-ink); stroke-width: 3px; }
-.next-art .art-key { font-size: 54px; }
-.next-art .art-badge { font-size: 40px; font-weight: 800; }
-.next-art .art-chip { font-size: 24px; }
-.next-art .art-watermark { font-size: 24px; }
 .next .note { max-width: 1080px; margin: 28px auto 0; text-align: center; color: var(--mute); font-size: 17px; line-height: 1.5; }
 .tile img { display: block; width: 100%; height: auto; border-radius: 16px; }
 .tile .big-keys { display: flex; gap: 8px; margin: 0 0 28px; }
